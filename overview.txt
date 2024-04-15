@@ -1,0 +1,28 @@
+COMPSYS726 Practical Project 
+
+Author: 
+Harvey Merton 
+hmer101 
+979936166 
+
+The nodes in this solution are as follows: 
+- obstacle_avoid.py: The main logic node which determines how the robot should react 
+    in various situations. Uses the Bug2 algorithm as a base 
+
+This node subscribes to the following nodes: 
+- imu.py: Converts the odometry readings from the /odom topic to eulerian 
+    x,y co-ordinates and an angle. All readings are all relative to the starting position. 
+
+- bumper.py: Simply an intermediate node subscribing to the bumper event. Exists to 
+    allow encapsulation and easy future extensibility; should pre-processing to bumper information be required, this node would be altered. 
+
+- laserscanner.py: Takes in a distance input from the laser scanner in the form of an 
+    array. Uses this information to output an array of 0's and 1's where 0's represent
+    an object closer than a certain threshold (set at 1m currently) while 1's represent 
+    a gap larger than the robot (found using trigonometry). Inspired by the vector field 
+    histogram approach.    
+
+
+Obstacle_avoid publishes to: 
+-  takephoto.py: Handles image taking and saving using the RGB camera. 
+    Images are taken when requested by the obstacle_avoid node. 

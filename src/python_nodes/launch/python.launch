@@ -1,0 +1,10 @@
+<launch>
+'<!--' NODES '-->'
+<node pkg="python_nodes" type="bumper.py" name="SensorBumperNode" />
+<node pkg="python_nodes" type="imu.py" name="SensorImuNode" />
+<node pkg="python_nodes" type="laserscan.py" name="SensorLaserscanNode"/>
+<node pkg="python_nodes" type="takephoto.py" name="TakePhotoNode" output="screen" />
+
+<node pkg="python_nodes" type="obstacle_avoid.py" name="ObstacleAvoidanceNode" output="screen" />
+
+</launch>
